@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="this first website with js" />
+    <title>Guess My Number!</title>
+    <script type="module" crossorigin src="/Guess-My-number/assets/index-EbizjuKY.js"></script>
+    <link rel="stylesheet" crossorigin href="/Guess-My-number/assets/index-D7v4NYux.css">
+  </head>
+  <body class="bg-main-bg text-text-bright">
+    <header
+      class="min-h-[35vh] relative flex flex-col items-center justify-center border-b border-surface-border bg-surface/50 backdrop-blur-sm"
+    >
+      <div class="absolute top-0 w-full flex justify-between items-center p-8">
+        <button
+          class="btn-again px-8 py-3 bg-text-bright text-main-bg font-bold rounded-full hover:scale-105 transition-transform cursor-pointer shadow-xl"
+        >
+          Again!
+        </button>
+        <p
+          class="between text-text-muted font-medium tracking-widest uppercase text-[10px] italic"
+        >
+          (Between 1 and 20)
+        </p>
+      </div>
+      <h1
+        class="text-[clamp(2.5rem,3vw,5rem)] font-black tracking-tighter drop-shadow-2xl mt-10"
+      >
+        Guess My
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary"
+        >
+          Number!
+        </span>
+      </h1>
+      <div
+        class="number absolute bottom-0 translate-y-1/2 w-32 h-32 flex items-center justify-center bg-gradient-to-br from-primary to-secondary text-white text-5xl font-bold rounded-3xl shadow-[0_0_50px_-12px_rgba(147,51,234,0.4)] border-4 border-main-bg transition-all duration-500 ease-out"
+      >
+        ?
+      </div>
+    </header>
+    <main
+      class="min-h-[65vh] flex flex-col md:flex-row gap-14 md:gap-24 justify-center items-center py-12 mt-24 md:mt-0"
+    >
+      <section class="left flex flex-col gap-6 items-center">
+        <input
+          type="number"
+          max="20"
+          min="0"
+          class="guess w-78 h-32 bg-surface border-2 border-surface-border rounded-[2rem] text-5xl text-center focus:border-primary focus:bg-surface/80 transition-all outline-none shadow-inner p-4"
+          aria-label="input for your number"
+        />
+        <button
+          class="btn-check w-full py-5 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-2xl hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:hover:bg-primary disabled:active:scale-100"
+        >
+          Check!
+        </button>
+      </section>
+      <section
+        class="right flex flex-col gap-8 bg-surface/30 p-10 rounded-[3rem] border border-surface-border shadow-2xl"
+      >
+        <p
+          class="message text-2xl font-light text-text-bright/90 italic min-w-[200px]"
+        >
+          Start guessing...
+        </p>
+        <div class="flex flex-col gap-4">
+          <p class="label-score text-xl flex items-center gap-3">
+            <span class="p-2 bg-surface rounded-lg shadow-sm">💯</span>
+            <span class="text-text-muted">Score:</span>
+            <span class="score font-bold text-2xl text-accent">20</span>
+          </p>
+          <p class="label-highscore text-xl flex items-center gap-3">
+            <span class="p-2 bg-surface rounded-lg shadow-sm">🥇</span>
+            <span class="text-text-muted">Highscore:</span>
+            <span class="highscore font-bold text-2xl text-secondary">0</span>
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

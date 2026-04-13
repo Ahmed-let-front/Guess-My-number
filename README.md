@@ -10,7 +10,7 @@ A high-performance, modern logic-guessing game built with **JavaScript (ES6+)** 
 
 The following screenshots demonstrate the application interface and the technical audit results:
 
-![Application Interface](public/site.png)
+![Application Interface](site.png)
 *Figure 1: The modern, responsive UI built with Tailwind v4.*
 
 ![Lighthouse Perfect Score](public/matrix.png)

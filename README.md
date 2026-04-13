@@ -4,18 +4,22 @@ A high-performance, modern logic-guessing game built with **JavaScript (ES6+)** 
 
 ### 🔗 [Live Demo ✨](https://ahmed-let-front.github.io/Guess-My-number/)
 
-![Lighthouse Score](https://img.shields.io/badge/Lighthouse-400%2F400-brightgreen?style=for-the-badge&logo=googlechrome)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+---
+
+## 📸 Performance Preview
+
+![Application Interface & Lighthouse Audit](https://raw.githubusercontent.com/Ahmed-let-front/Guess-My-number/main/image_29b203.png)
+*Figure 1: Full system audit showing 100/100 across all categories.*
+
+---
 
 ## 🚀 Key Features
 
-* **Modular Architecture:** Full separation of concerns using ES6 Modules.
+* **Modular Architecture:** Full separation of concerns using ES6 Modules (Logic vs. Execution).
 * **Event Handling:** Optimized Keyboard support (Enter key) with smart `removeEventListener` logic to freeze inputs after game termination.
-* **Modern Styling:** Built with **Tailwind CSS v4**, utilizing the new `@theme` engine, CSS variables, and native backdrop blurs.
-* **Responsive Design:** Fully fluid UI using `clamp()` and mobile-first utility classes for a perfect experience on all screens.
-* **UX Micro-interactions:** Smooth scale transitions, focus states, and advanced disabled button handling using Tailwind's `disabled` variants.
+* **Modern Styling:** Built with **Tailwind CSS v4** (`@tailwindcss/vite`), utilizing the new `@theme` engine and native backdrop blurs.
+* **Internal Asset Management:** Zero external CDN calls! All fonts (Roboto & Press Start 2P) are managed internally via npm for maximum speed.
+* **UX Micro-interactions:** Smooth scale transitions, focus states, and advanced disabled button handling.
 
 ---
 
@@ -23,20 +27,20 @@ A high-performance, modern logic-guessing game built with **JavaScript (ES6+)** 
 
 The project follows a **Professional Modular Pattern** to ensure clean and maintainable code:
 
-* **`script.js` (The Logic Core):** This file serves as the **"Brain"** of the app. It manages the secret number generation, score tracking, highscore persistence, and UI update functions.
-* **`main.js` (The Entry Point):** This is the **orchestrator** file. It **imports** the logic from `script.js` and attaches all event listeners (Click & Keydown).
+* **`src/script.js` (The Logic Core):** Serves as the **"Brain"** of the app. It manages secret number generation, score tracking, and UI update functions.
+* **`src/main.js` (The Entry Point):** The **orchestrator** file. It **imports** the logic from `script.js` and attaches all event listeners.
 
-> **Why this matters?** This structure prevents "Spaghetti Code" and mimics the workflow used in professional environments like React or Vue.
+> **Why this matters?** This structure prevents "Spaghetti Code" and mimics the modern workflow used in professional environments like React or Vue.
 
 ---
 
 ## 📦 Internal Dependency Management (The NPM Way)
 
-This project moves away from external CDNs, opting for a professional **npm-managed workflow**:
+This project moves away from external CDNs, opting for a professional **npm-managed workflow** to ensure **Internal Requests** only:
 
-* **Internal Requests:** All dependencies (Tailwind v4, Fonts, Libraries) are installed via **npm** and bundled locally using **Vite**. This significantly reduces external DNS lookups and HTTP requests, resulting in lightning-fast load times.
-* **Deterministic Environment:** Using `package.json` to manage scripts like `npm run build` and `npm run deploy`, ensuring the project is reproducible and stable.
-* **Optimized Bundling:** Vite performs **Tree Shaking** to prune unused CSS/JS, creating the smallest possible footprint for production.
+* **Bundled Assets:** All dependencies are installed via **npm** and bundled locally using **Vite**. This eliminates external DNS lookups, resulting in lightning-fast load times.
+* **Deterministic Environment:** Using `package.json` to manage scripts like `npm run build` and `npm run deploy`, ensuring the project is stable and reproducible.
+* **Tree Shaking:** Vite performs deep analysis to prune unused CSS/JS, creating the smallest possible bundle for production.
 
 ---
 
@@ -44,9 +48,9 @@ This project moves away from external CDNs, opting for a professional **npm-mana
 
 This project is meticulously optimized to hit the perfect score:
 
-* **Performance (100/100):** Achieved through internal asset bundling, minimal DOM manipulation, and zero render-blocking external requests.
-* **Accessibility (100/100):** Full semantic HTML5 structure, proper ARIA labels for inputs, and high-contrast color palettes.
-* **Best Practices (100/100):** Clean ES Module imports, secure coding patterns, and modern JavaScript syntax.
+* **Performance (100/100):** Achieved through internal bundling and zero render-blocking requests.
+* **Accessibility (100/100):** Full semantic HTML5 structure and high-contrast color palettes.
+* **Best Practices (100/100):** Clean ES Module imports and secure coding patterns.
 * **SEO (100/100):** Optimized meta descriptions and semantic header hierarchy.
 
 ---
@@ -70,12 +74,7 @@ To run this project on your machine, follow these steps:
     npm run dev
     ```
 
-4.  **Build for production:**
-    ```bash
-    npm run build
-    ```
-
-5.  **Deploy to GitHub Pages:**
+4.  **Deploy to GitHub Pages:**
     ```bash
     npm run deploy
     ```

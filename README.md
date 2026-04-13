@@ -2,6 +2,8 @@
 
 A high-performance, modern logic-guessing game built with **JavaScript (ES6+)** and **Tailwind CSS v4**. This project is engineered for speed and accessibility, achieving a perfect **400/400 score on Google Lighthouse**.
 
+### 🔗 [Live Demo ✨](https://ahmed-let-front.github.io/Guess-My-number/)
+
 ![Lighthouse Score](https://img.shields.io/badge/Lighthouse-400%2F400-brightgreen?style=for-the-badge&logo=googlechrome)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -55,7 +57,7 @@ To run this project on your machine, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/Ahmed-let-front/guess-my-number.git](https://github.com/Ahmed-let-front/guess-my-number.git)
+    git clone [https://github.com/Ahmed-let-front/Guess-My-number.git](https://github.com/Ahmed-let-front/Guess-My-number.git)
     ```
 
 2.  **Install internal dependencies:**

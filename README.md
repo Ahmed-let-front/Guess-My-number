@@ -10,10 +10,10 @@ A high-performance, modern logic-guessing game built with **JavaScript (ES6+)** 
 
 The following screenshots demonstrate the application interface and the technical audit results:
 
-![Application Interface](site.png)
+![Application Interface](https://raw.githubusercontent.com/Ahmed-let-front/Guess-My-number/main/public/site.png)
 *Figure 1: The modern, responsive UI built with Tailwind v4.*
 
-![Lighthouse Perfect Score](public/matrix.png)
+![Lighthouse Perfect Score](https://raw.githubusercontent.com/Ahmed-let-front/Guess-My-number/main/public/matrix.png)
 *Figure 2: Perfect 400/400 audit report (Performance, Accessibility, Best Practices, SEO).*
 
 ---

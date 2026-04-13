@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "@fontsource-variable/roboto/index.css";
+@custom-variant hover (&:hover);
+@theme {
+  --color-main-bg: #020617;
+  --color-surface: #1e293b;
+  --color-surface-border: #475569;
+  --color-primary: #a855f7;
+  --color-secondary: #f43f5e;
+  --color-accent: #2dd4bf;
+  --color-text-muted: #94a3b8;
+  --color-text-bright: #ffffff;
+}
+@layer base {
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    font-family: "Roboto Flexible", sans-serif;
+    font-size: 1.6rem;
+    color: var(--color-base-color);
+    background-color: var(--color-body-color);
+  }
+}

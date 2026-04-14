@@ -1,6 +1,7 @@
 import "./css/style.css";
-import * as siteNumber from "./script.js";
+import * as gameLogic from "./script.js";
 document
   .querySelector(".btn-check")
-  .addEventListener("click", siteNumber.checkGuess);
-document.querySelector(".btn-again").addEventListener("click", siteNumber.buttonAgain)
+  .addEventListener("click", gameLogic.checkGuess);
+document.querySelector(".btn-again").addEventListener("click", gameLogic.buttonAgain);
+document.addEventListener("keydown", gameLogic.handleEnter);

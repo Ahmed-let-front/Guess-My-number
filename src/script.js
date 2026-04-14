@@ -11,13 +11,12 @@ const btnCheckEl = document.querySelector(".btn-check");
 let secretNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
-export const displayMessage = function (message) {
+const displayMessage = function (message) {
   messageEl.textContent = message;
 };
 export const handleEnter = function (e) {
   if (e.key === "Enter") checkGuess();
 };
-document.addEventListener("keydown", handleEnter);
 export const checkGuess = function () {
   const guess = Number(guessEl.value);
   if (!guess) {
@@ -50,7 +49,6 @@ export const checkGuess = function () {
     }
   }
 };
-
 export const buttonAgain = function refresh() {
   secretNumber = Math.floor(Math.random() * 20) + 1;
   score = 20;

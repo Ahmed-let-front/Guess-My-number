@@ -2,7 +2,7 @@
 
 A high-performance, modern logic-guessing game built with **JavaScript (ES6+)** and **Tailwind CSS v4**. This project is engineered for speed and accessibility, achieving a perfect **400/400 score on Google Lighthouse**.
 
-### 🔗 [Live Demo ✨](https://ahmed-let-front.github.io/Guess-My-number/)
+### 🔗 [Live Demo ✨]([https://ahmed-let-front.github.io/Guess-My-number/](https://ahmed-let-front.github.io/Guess-My-number/))
 
 ---
 

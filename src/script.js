@@ -61,4 +61,5 @@ export const buttonAgain = function refresh() {
   headerEl.style.background = "#1e293b80";
   mainEl.style.background = "transparent";
   btnCheckEl.disabled = false;
+  document.addEventListener("keydown", handleEnter);
 };

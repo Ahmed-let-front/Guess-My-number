@@ -30,13 +30,36 @@ While the fundamental game logic originates from the course, **I have completely
 
 ---
 
+## 🛠️ Technical Evolution (Refactoring & Clean Code)
+
+In the latest update, I transitioned the codebase from a functional-only state to a **Maintainable & Scalable Architecture** by applying professional software engineering principles:
+
+### 1. Centralized DOM Registry (The `elements` Object)
+
+Instead of scattered DOM queries throughout the code, I implemented a centralized `elements` object. This creates a **Single Source of Truth** for all UI interactions, making the code cleaner and easier to maintain.
+
+### 2. Open/Closed Principle (OCP)
+
+The game logic is now **Open for extension but Closed for modification**. By decoupling the **Game Rules** (stored in a `GAME_MESSAGES` mapping) from the **Execution Engine** (`checkGuessStatus`), new difficulty levels or rules can be added without altering the core logic.
+
+### 3. Separation of Concerns (Logic vs. UI)
+
+- **Pure Logic:** The `checkGuessStatus` function is now a "Pure Function". It takes raw data and returns a status signal without touching the DOM, making it highly testable.
+- **Centralized UI Controller:** I implemented a `updateUiStyle` helper to manage all CSS modifications, ensuring visual consistency across the application.
+
+### 4. Advanced State Management
+
+- **IsPlaying Guard:** Introduced a state-driven control mechanism to freeze game logic once a win or loss occurs.
+- **Magic Strings Elimination:** All UI feedback is managed via a dictionary object to prevent typos and enable centralized updates.
+
+---
+
 ## 🚀 Key Features
 
-- **Modular Architecture:** Full separation of concerns using ES6 Modules (Logic vs. Execution).
-- **Event Handling:** Optimized Keyboard support (Enter key) with smart `removeEventListener` logic to freeze inputs after game termination.
-- **Modern Styling:** Built with **Tailwind CSS v4** (`@tailwindcss/vite`), utilizing the new `@theme` engine and native backdrop blurs.
-- **Internal Asset Management:** Zero external CDN calls! All fonts are managed internally via npm for maximum speed.
-- **UX Micro-interactions:** Smooth scale transitions, focus states, and advanced disabled button handling.
+- **Modular Architecture:** Full separation of concerns using ES6 Modules.
+- **Event Handling:** Optimized Keyboard support (Enter key) with smart `removeEventListener` logic.
+- **Modern Styling:** Built with **Tailwind CSS v4**, utilizing the new `@theme` engine and native backdrop blurs.
+- **Internal Asset Management:** Zero external CDN calls! All fonts are managed internally for maximum speed.
 
 ---
 
@@ -45,8 +68,7 @@ While the fundamental game logic originates from the course, **I have completely
 This project moves away from external CDNs, opting for a professional **npm-managed workflow**:
 
 - **Automated Build Workflow:** Utilizing `predeploy` scripts to ensure that `npm run build` is executed automatically before every deployment.
-- **Bundled Assets:** All dependencies are installed via **npm** and bundled locally using **Vite** for lightning-fast load times.
-- **Tree Shaking:** Vite performs deep analysis to prune unused code, creating the smallest possible bundle.
+- **Tree Shaking:** Vite performs deep analysis to prune unused code, creating the smallest possible bundle for lightning-fast load times.
 
 ---
 
@@ -61,26 +83,23 @@ This project moves away from external CDNs, opting for a professional **npm-mana
 
 ## 🛠️ Installation & Setup
 
-1.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
-2.  **Development & Testing:**
-    ```bash
-    npm run dev
-    ```
-3.  **Connect to GitHub:**
-    Link your local repository to the remote GitHub repository.
-
-    ```bash
-    git remote add origin [https://github com/Ahmed-let-front/Guess-My-number.git](https://github.com/Ahmed-let-front/Guess-My-number.git)
-    ```
-
-4.  **Production Deployment:**
-    ```bash
-    npm run deploy
-    ```
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Development & Testing:**
+   ```bash
+   npm run dev
+   ```
+3. **Connect to GitHub:**
+   ```bash
+   git remote add origin [https://github.com/Ahmed-let-front/Guess-My-number.git](https://github.com/Ahmed-let-front/Guess-My-number.git)
+   ```
+4. **Production Deployment:**
+   ```bash
+   npm run deploy
+   ```
 
 ---
 
-**Developed with** ❤️ by [Ahmed Yasser](https://github.com/Ahmed-let-front)
+\*\*Developed with ❤️ by [Ahmed yasser](https://www.google.com/search?q=https://github.com/Ahmed-let-front)

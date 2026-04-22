@@ -1,65 +1,97 @@
 "use strict";
-const bodyEl = document.body;
-const headerEl = document.querySelector("header");
-const mainEl = document.querySelector("main");
-const messageEl = document.querySelector(".message");
-const numberEl = document.querySelector(".number");
-const scoreEl = document.querySelector(".score");
-const highscoreEl = document.querySelector(".highscore");
-const guessEl = document.querySelector(".guess");
-const btnCheckEl = document.querySelector(".btn-check");
-let secretNumber = Math.floor(Math.random() * 20) + 1;
-let score = 20;
+const INITIAL_SCORE = 20;
+const GAME_MESSAGES = {
+  NO_NUMBER: "⛔ No Number",
+  NOT_POSITIVE: "🙌 Enter a Positive Number",
+  WINNER: "🎉 Correct Number!",
+  TOO_HIGH: "📈 Too High!",
+  TOO_LOW: "📉 Too Low!",
+  LOST: "💥 You lost the game!",
+  START: "Start guessing...",
+};
+const elements = {
+  body: document.body,
+  header: document.querySelector("header"),
+  message: document.querySelector(".message"),
+  number: document.querySelector(".number"),
+  score: document.querySelector(".score"),
+  highscore: document.querySelector(".highscore"),
+  guess: document.querySelector(".guess"),
+  btnCheck: document.querySelector(".btn-check"),
+  btnAgain: document.querySelector(".btn-again"),
+};
+let score = INITIAL_SCORE;
 let highscore = 0;
-const displayMessage = function (message) {
-  messageEl.textContent = message;
+let secretNumber = Math.floor(Math.random() * 20) + 1;
+let isPlaying = true;
+const updateUiStyle = (element, property, value) => {
+  element.style[property] = value;
 };
-export const handleEnter = function (e) {
-  if (e.key === "Enter") checkGuess();
+const displayMessage = message => {
+  elements.message.textContent = message;
 };
-export const checkGuess = function () {
-  const guess = Number(guessEl.value);
-  if (!guess) {
-    displayMessage("⛔ No Number");
-  } else if (guess < 0) {
-    displayMessage("🙌 Enter a Positive Number");
-  } else if (guess === secretNumber) {
-    displayMessage("🎯 Correct");
-    bodyEl.style.background = "linear-gradient(to top, #064e3b, #022c22)";
-    headerEl.style.background = "transparent";
-    mainEl.style.background = "transparent";
-    numberEl.textContent = secretNumber;
-    numberEl.style.width = "20rem";
-    document.removeEventListener("keydown", handleEnter);
-    btnCheckEl.disabled = true;
+const disableGame = () => {
+  isPlaying = false;
+  elements.btnCheck.disabled = true;
+  document.removeEventListener("keydown", handleEnter);
+};
+const checkGuessStatus = (guess, secret) => {
+  if (guess === null) return GAME_MESSAGES.NO_NUMBER;
+  if (guess < 0) return GAME_MESSAGES.NOT_POSITIVE;
+  if (guess === secret) return GAME_MESSAGES.WINNER;
+  return guess > secret ? GAME_MESSAGES.TOO_HIGH : GAME_MESSAGES.TOO_LOW;
+};
+const handleCheck = function () {
+  if (!isPlaying) return;
+  const guessValue = elements.guess.value;
+  const guess = guessValue === "" ? null : Number(guessValue);
+  const status = checkGuessStatus(guess, secretNumber);
+  displayMessage(status);
+  if (status === GAME_MESSAGES.WINNER) {
+    updateUiStyle(
+      elements.body,
+      "background",
+      "linear-gradient(to top, #064e3b, #022c22)",
+    );
+    updateUiStyle(elements.header, "background", "transparent");
+    updateUiStyle(elements.number, "width", "12rem");
+    elements.number.textContent = secretNumber;
     if (score > highscore) {
       highscore = score;
-      highscoreEl.textContent = highscore;
+      elements.highscore.textContent = highscore;
     }
-  } else if (guess !== secretNumber) {
+    disableGame();
+  } else if (
+    status === GAME_MESSAGES.TOO_HIGH ||
+    status === GAME_MESSAGES.TOO_LOW
+  ) {
     if (score > 1) {
-      displayMessage(guess > secretNumber ? "📈 Too high" : "📉 Too low");
       score--;
-      scoreEl.textContent = score;
+      elements.score.textContent = score;
     } else {
-      displayMessage("💥 You lost the game!");
-      scoreEl.textContent = 0;
-      btnCheckEl.disabled = true;
-      document.removeEventListener("keydown", handleEnter);
+      displayMessage(GAME_MESSAGES.LOST);
+      elements.score.textContent = 0;
+      disableGame();
     }
   }
 };
-export const buttonAgain = function refresh() {
+const handleAgain = function () {
   secretNumber = Math.floor(Math.random() * 20) + 1;
-  score = 20;
-  displayMessage("Start guessing...");
-  scoreEl.textContent = score;
-  numberEl.textContent = "?";
-  numberEl.style.width = "8rem";
-  guessEl.value = "";
-  bodyEl.style.background = "#020617";
-  headerEl.style.background = "#1e293b80";
-  mainEl.style.background = "transparent";
-  btnCheckEl.disabled = false;
+  score = INITIAL_SCORE;
+  isPlaying = true;
+  displayMessage(GAME_MESSAGES.START);
+  elements.score.textContent = score;
+  elements.number.textContent = "?";
+  elements.guess.value = "";
+  updateUiStyle(elements.number, "width", "8rem");
+  updateUiStyle(elements.body, "background", "");
+  updateUiStyle(elements.header, "background", "");
+  elements.btnCheck.disabled = false;
   document.addEventListener("keydown", handleEnter);
 };
+const handleEnter = e => {
+  if (e.key === "Enter") handleCheck();
+};
+elements.btnCheck.addEventListener("click", handleCheck);
+elements.btnAgain.addEventListener("click", handleAgain);
+document.addEventListener("keydown", handleEnter);
